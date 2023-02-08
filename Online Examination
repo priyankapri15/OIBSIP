@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class OnlineExam 
+{
+    private static Scanner sc = new Scanner(System.in);
+    private static String username = "";
+    private static String password = "";
+    private static int timer = 0;
+
+    public static void main(String[] args) 
+    {
+        System.out.println("Online Exam System");
+        while (true)
+        {
+            System.out.println("1. Login");
+            System.out.println("2. Update Profile and Password");
+            System.out.println("3. Start Exam");
+            System.out.println("4. Logout");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine();
+            switch (choice) 
+            {
+                case 1:
+                    login();
+                    break;
+                case 2:
+                    updateProfile();
+                    break;
+                case 3:
+                    startExam();
+                    break;
+                case 4:
+                    logout();
+                    return;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+
+    private static void login() 
+    {
+        System.out.print("Enter username: ");
+        String enteredUsername = sc.nextLine();
+        System.out.print("Enter password: ");
+        String enteredPassword = sc.nextLine();
+        if (enteredUsername.equals(username) && enteredPassword.equals(password)) 
+        {
+            System.out.println("Login successfull.");
+        } 
+        else 
+        {
+            System.out.println("Login failed.");
+        }
+    }
+
+    private static void updateProfile()
+    {
+        System.out.print("Enter new username: ");
+        username = sc.nextLine();
+        System.out.print("Enter new password: ");
+        password = sc.nextLine();
+        System.out.println("Profile updated successfully.");
+    }
+
+    private static void startExam() 
+    {
+        System.out.println("Starting exam.");
+        System.out.println("MCQs: ");
+        System.out.println("1. What is the capital of India?");
+        System.out.println("A. Mumbai");
+        System.out.println("B. New Delhi");
+        System.out.println("C. Bangalore");
+        System.out.println("D. Kolkata");
+        System.out.print("Enter your answer: ");
+        String answer = sc.nextLine();
+        System.out.println("Answer submitted successfully.");
+        System.out.println("Exam ended.");
+    }
+
+    private static void logout()
+    {
+        System.out.println("Logging out.");
+    }
+}
+
